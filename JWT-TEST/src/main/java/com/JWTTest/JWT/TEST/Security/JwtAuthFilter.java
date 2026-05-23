@@ -44,6 +44,9 @@ public class JwtAuthFilter extends OncePerRequestFilter{
 			filterChain.doFilter(request, response);
 		}catch(Exception ex) {
 //			HandlerExceptionResolver handlerExceptionResolver = HandlerExceptionResolver; resolveException(request,response,null,ex);
+			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+		    response.getWriter().write("Invalid JWT Token");
+		    return;
 		}
 	}
 
