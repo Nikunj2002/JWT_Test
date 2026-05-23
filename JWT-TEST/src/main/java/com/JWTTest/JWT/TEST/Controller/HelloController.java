@@ -9,4 +9,9 @@ public class HelloController {
 	public String sayHello() {
 		return "Hello";
 	}
+	@GetMapping("/jwt/check/after-login")
+	public String JWTCHECK() {
+		System.out.println("Test");
+		return "JWT validate successifully";
+	}
 }
